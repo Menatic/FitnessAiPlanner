@@ -1,0 +1,71 @@
+Objective:
+Design a mini AI engine that generates a 12-session workout plan for a client
+enrolled in a personal training package for 1 month. Each workout must be
+structured in clearly defined sections and include appropriate exercise metadata.
+This assignment is meant to assess your logical thinking, programming ability, and
+understanding of exercise science.
+1. Requirements
+You are to build a CLI or Web API (Python Flask/FastAPI or Node.js) that:
+- Accepts a user profile as input
+- Generates a 12-day progressive workout plan (3 sessions/week, 4 weeks)
+- Each workout contains 3 primary sections: Warm-Up, Main Exercises, Cool-Down
+- Allows an optional custom section: Circuit or Superset
+2. Sample Input JSON
+{
+"name": "Aarav",
+"age": 35,
+"gender": "male",
+"goal": "muscle_gain",
+"experience": "intermediate",
+"equipment": ["dumbbells", "bench", "resistance_band"],
+"days_per_week": 3
+}
+
+3. Sample Output Format (Workout Plan)
+{
+"session": 1,
+"date": "2025-05-06",
+"sections": {
+"warmup": [
+{ "name": "Jumping Jacks", "duration": "2 min" },
+{ "name": "Arm Circles", "sets": 2, "reps": 15 }
+],
+"main": [
+{ "name": "Dumbbell Chest Press", "sets": 3, "reps": 10, "rest": "60s", "tempo": "2-1-1"
+},
+{ "name": "Resistance Band Row", "sets": 3, "reps": 12 }
+],
+"cooldown": [
+{ "name": "Child’s Pose", "duration": "1 min" },
+{ "name": "Chest Stretch", "duration": "30 sec each side" }
+]
+}
+}
+4. Exercise Theory
+- Warm-Up: Increases body temperature and blood flow. Includes dynamic stretches
+or light cardio.
+- Main Workout: Resistance training targeting major muscle groups. Should follow a
+push-pull or upper-lower split across the 12 sessions.
+- Cool-Down: Reduces heart rate gradually. Involves static stretching and deep
+breathing.
+
+5. Exercise Parameters
+- name: Exercise title (e.g., Squat)
+- sets: Number of sets
+- reps: Repetitions per set
+- rest: Rest duration between sets
+- tempo: Speed of exercise phases (eccentric-isometric-concentric)
+- duration: For timed movements (e.g., stretches, cardio)
+
+6. Bonus Tasks
+- Generate progressive overload (e.g., add sets/reps each week)
+- Add logic to alternate between push/pull days
+- Export workout plan to PDF or JSON
+- Add UI using Angular or simple HTML form
+7. Deadline & Submission
+- Deadline: 3 days from assignment receipt
+- Submission Format: GitHub repo or ZIP with README
+8. Additional Requirement
+- Deploy your workout generator as a live API (Flask, FastAPI, or Node.js)
+- Host it using a service like Render, Railway, Heroku, or any cloud VM
+- Provide the public endpoint URL and documentation to test
