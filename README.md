@@ -40,19 +40,21 @@ flask run
 
 ## Project Structure 📁
 
-FitnessAiPlanner/
-├── app.py              # Core application logic
-├── main.py             # Entry point
-├── workout_generator.py # AI workout generation module
-├── exercise_data.py    # Exercise database
-├── templates/          # Jinja2 templates
-│   ├── index.html      # Main interface
-│   └── results.html    # Workout plan display
-└── static/             # Frontend assets
-    ├── css/
-    │   └── styles.css  # Custom styling
-    └── js/
-        └── app.js      # Interactive features
+graph TD
+    A[FitnessAiPlanner] --> B[app.py]
+    A --> C[workout_generator.py]
+    A --> D[exercise_data.py]
+    A --> E[README.md]
+    A --> F[templates/]
+    F --> F1[index.html]
+    F --> F2[documentation.html]
+    A --> G[static/]
+    G --> G1[js/]
+    G1 --> G1a[main.js]
+    G --> G2[css/]
+    A --> H[venv/]
+    A --> I[attached_assets/]
+    I --> I1[Pasted-Objective...txt]
 
 ## Contributing 🤝
 1. Fork the repository
