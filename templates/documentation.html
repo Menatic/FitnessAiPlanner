@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - Workout Plan Generator</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/">Workout Plan Generator</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/documentation">API Documentation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">API Documentation</h2>
+                        <p class="card-text">
+                            This documentation provides details on how to use the Workout Plan Generator API to create personalized 
+                            workout plans based on user profiles and exercise preferences.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Endpoint</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="doc-section">
+                            <p><strong>URL:</strong> <code>/api/generate-workout</code></p>
+                            <p><strong>Method:</strong> <code>POST</code></p>
+                            <p><strong>Content Type:</strong> <code>application/json</code></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Request Parameters</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="doc-section">
+                            <p>The request body should be a JSON object with the following fields:</p>
+                            
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Field</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                        <th>Required</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>name</td>
+                                        <td>string</td>
+                                        <td>Client's name</td>
+                                        <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>age</td>
+                                        <td>integer</td>
+                                        <td>Client's age (16-80)</td>
+                                        <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>gender</td>
+                                        <td>string</td>
+                                        <td>Client's gender ("male", "female", "other")</td>
+                                        <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>goal</td>
+                                        <td>string</td>
+                                        <td>Training goal ("muscle_gain", "weight_loss", "strength", "endurance")</td>
+                                        <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>experience</td>
+                                        <td>string</td>
+                                        <td>Training experience ("beginner", "intermediate", "advanced")</td>
+                                        <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>equipment</td>
+                                        <td>array</td>
+                                        <td>Available equipment (e.g., ["dumbbells", "bench", "resistance_band"])</td>
+                                        <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>days_per_week</td>
+                                        <td>integer</td>
+                                        <td>Training days per week (1-7)</td>
+                                        <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>include_custom_section</td>
+                                        <td>boolean</td>
+                                        <td>Whether to include a custom section (circuit or superset)</td>
+                                        <td>No</td>
+                                    </tr>
+                                    <tr>
+                                        <td>custom_section_type</td>
+                                        <td>string</td>
+                                        <td>Type of custom section ("circuit" or "superset")</td>
+                                        <td>No</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Example Request</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="doc-section">
+                            <pre><code>{
+  "name": "Aarav",
+  "age": 35,
+  "gender": "male",
+  "goal": "muscle_gain",
+  "experience": "intermediate",
+  "equipment": ["dumbbells", "bench", "resistance_band"],
+  "days_per_week": 3,
+  "include_custom_section": true,
+  "custom_section_type": "circuit"
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Response</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="doc-section">
+                            <p>The API returns a JSON object containing the client profile and a complete 12-session workout plan.</p>
+                            
+                            <h4 class="mt-4">Success Response (200 OK)</h4>
+                            <p>The response will include:</p>
+                            <ul>
+                                <li><strong>client_profile:</strong> Object containing the user's profile information</li>
+                                <li><strong>sessions:</strong> Array of 12 workout sessions</li>
+                            </ul>
+                            
+                            <h5 class="mt-3">Session Structure:</h5>
+                            <ul>
+                                <li><strong>session:</strong> Session number (1-12)</li>
+                                <li><strong>date:</strong> Session date in ISO format (YYYY-MM-DD)</li>
+                                <li><strong>workout_type:</strong> Type of workout (push, pull, legs, etc.)</li>
+                                <li><strong>week:</strong> Week number (1-4)</li>
+                                <li><strong>sections:</strong> Object containing workout sections</li>
+                            </ul>
+                            
+                            <h5 class="mt-3">Workout Sections:</h5>
+                            <ul>
+                                <li><strong>warmup:</strong> Array of warm-up exercises</li>
+                                <li><strong>main:</strong> Array of main exercises</li>
+                                <li><strong>cooldown:</strong> Array of cool-down exercises</li>
+                                <li><strong>circuit:</strong> Array of circuit exercises (if requested)</li>
+                                <li><strong>superset:</strong> Array of superset exercises (if requested)</li>
+                            </ul>
+                            
+                            <h5 class="mt-3">Exercise Parameters:</h5>
+                            <ul>
+                                <li><strong>name:</strong> Exercise name</li>
+                                <li><strong>sets:</strong> Number of sets</li>
+                                <li><strong>reps:</strong> Repetitions per set</li>
+                                <li><strong>rest:</strong> Rest duration between sets</li>
+                                <li><strong>tempo:</strong> Speed of exercise phases (eccentric-isometric-concentric)</li>
+                                <li><strong>duration:</strong> For timed movements (e.g., stretches, cardio)</li>
+                                <li><strong>time:</strong> Duration for circuit exercises</li>
+                                <li><strong>rounds:</strong> Number of rounds for circuit exercises</li>
+                            </ul>
+                            
+                            <h4 class="mt-4">Error Response (400 Bad Request)</h4>
+                            <pre><code>{
+  "error": "Error message describing the issue"
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Example Response</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="doc-section">
+                            <pre><code>{
+  "client_profile": {
+    "name": "Aarav",
+    "age": 35,
+    "gender": "male",
+    "goal": "muscle_gain",
+    "experience": "intermediate",
+    "equipment": ["dumbbells", "bench", "resistance_band"],
+    "days_per_week": 3
+  },
+  "sessions": [
+    {
+      "session": 1,
+      "date": "2023-06-05",
+      "workout_type": "push",
+      "week": 1,
+      "sections": {
+        "warmup": [
+          { "name": "Jumping Jacks", "duration": "2 min" },
+          { "name": "Arm Circles", "sets": 1, "reps": 10 }
+        ],
+        "main": [
+          { "name": "Dumbbell Chest Press", "sets": 3, "reps": 10, "rest": "60s", "tempo": "3-1-2" },
+          { "name": "Dumbbell Shoulder Press", "sets": 3, "reps": 10, "rest": "60s", "tempo": "3-1-2" }
+        ],
+        "circuit": [
+          { "name": "Push-Ups", "time": "30 sec", "rounds": 3 },
+          { "name": "Mountain Climbers", "time": "30 sec", "rounds": 3 }
+        ],
+        "cooldown": [
+          { "name": "Child's Pose", "duration": "30 sec" },
+          { "name": "Chest Stretch", "duration": "30 sec each side" }
+        ]
+      }
+    },
+    // Additional sessions omitted for brevity
+  ]
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="text-center text-muted">
+        <div class="container">
+            <p>&copy; 2023 Workout Plan Generator | A sophisticated AI-powered fitness tool</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
