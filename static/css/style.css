@@ -384,3 +384,28 @@ footer {
     background: linear-gradient(to right, var(--dark-accent), #1f2937);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+.form-select {
+    background-color: var(--primary-color) !important; 
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--light-accent) !important;
+}
+
+.form-select:focus {
+    border-color: var(--secondary-color) !important;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.25) !important; 
+}
+
+.form-select option {
+    background-color: var(--dark-accent);
+    color: var(--light-accent);
+}
+
+.form-select option:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.form-select option:checked {
+    background-color: var(--secondary-color) !important;
+}
