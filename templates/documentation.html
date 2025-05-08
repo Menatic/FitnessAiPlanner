@@ -3,24 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Documentation - Workout Plan Generator</title>
+    <title>API Documentation - Fitness Plan Pro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
         <div class="container">
-            <a class="navbar-brand" href="/">Workout Plan Generator</a>
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-lightning-charge-fill me-2"></i>
+                Fitness Plan Pro
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/">
+                            <i class="bi bi-house-door me-1"></i> Home
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/documentation">API Documentation</a>
+                        <a class="nav-link active" href="/documentation">
+                            <i class="bi bi-code-square me-1"></i> API Docs
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -32,98 +41,115 @@
             <div class="col-lg-12">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h2 class="card-title">API Documentation</h2>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-file-code-fill text-primary me-3" style="font-size: 2.5rem;"></i>
+                            <div>
+                                <h2 class="card-title mb-1">API Documentation</h2>
+                                <p class="text-muted mb-0">Integrate our workout generator into your fitness applications</p>
+                            </div>
+                        </div>
+                        <hr>
                         <p class="card-text">
-                            This documentation provides details on how to use the Workout Plan Generator API to create personalized 
-                            workout plans based on user profiles and exercise preferences.
+                            This documentation provides comprehensive details on how to use the Fitness Plan Pro API to create personalized 
+                            12-session workout plans. Our API helps you integrate advanced exercise science principles and progressive 
+                            training methodologies into your fitness applications.
                         </p>
                     </div>
                 </div>
                 
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h3 class="mb-0">Endpoint</h3>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-pin-map-fill me-2" style="font-size: 1.5rem;"></i>
+                            <h3 class="mb-0">Endpoint</h3>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="doc-section">
-                            <p><strong>URL:</strong> <code>/api/generate-workout</code></p>
-                            <p><strong>Method:</strong> <code>POST</code></p>
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="badge bg-primary me-2 p-2">POST</div>
+                                <code class="fs-5">/api/generate-workout</code>
+                            </div>
                             <p><strong>Content Type:</strong> <code>application/json</code></p>
+                            <p><strong>Authorization:</strong> None required</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h3 class="mb-0">Request Parameters</h3>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-arrow-right-square-fill me-2" style="font-size: 1.5rem;"></i>
+                            <h3 class="mb-0">Request Parameters</h3>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="doc-section">
-                            <p>The request body should be a JSON object with the following fields:</p>
+                            <p>The API expects a JSON object with the following parameters:</p>
                             
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Field</th>
+                                        <th>Parameter</th>
                                         <th>Type</th>
-                                        <th>Description</th>
+                                        <th width="40%">Description</th>
                                         <th>Required</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>name</td>
+                                        <td><code>name</code></td>
                                         <td>string</td>
-                                        <td>Client's name</td>
-                                        <td>Yes</td>
+                                        <td>Client's full name</td>
+                                        <td><span class="badge bg-success">Yes</span></td>
                                     </tr>
                                     <tr>
-                                        <td>age</td>
+                                        <td><code>age</code></td>
                                         <td>integer</td>
-                                        <td>Client's age (16-80)</td>
-                                        <td>Yes</td>
+                                        <td>Client's age (must be between 16-80)</td>
+                                        <td><span class="badge bg-success">Yes</span></td>
                                     </tr>
                                     <tr>
-                                        <td>gender</td>
+                                        <td><code>gender</code></td>
                                         <td>string</td>
                                         <td>Client's gender ("male", "female", "other")</td>
-                                        <td>Yes</td>
+                                        <td><span class="badge bg-success">Yes</span></td>
                                     </tr>
                                     <tr>
-                                        <td>goal</td>
+                                        <td><code>goal</code></td>
                                         <td>string</td>
-                                        <td>Training goal ("muscle_gain", "weight_loss", "strength", "endurance")</td>
-                                        <td>Yes</td>
+                                        <td>Primary training goal ("muscle_gain", "weight_loss", "strength", "endurance")</td>
+                                        <td><span class="badge bg-success">Yes</span></td>
                                     </tr>
                                     <tr>
-                                        <td>experience</td>
+                                        <td><code>experience</code></td>
                                         <td>string</td>
-                                        <td>Training experience ("beginner", "intermediate", "advanced")</td>
-                                        <td>Yes</td>
+                                        <td>Experience level ("beginner", "intermediate", "advanced")</td>
+                                        <td><span class="badge bg-success">Yes</span></td>
                                     </tr>
                                     <tr>
-                                        <td>equipment</td>
+                                        <td><code>equipment</code></td>
                                         <td>array</td>
-                                        <td>Available equipment (e.g., ["dumbbells", "bench", "resistance_band"])</td>
-                                        <td>Yes</td>
+                                        <td>Available equipment array (e.g., ["dumbbells", "bench", "resistance_band"])</td>
+                                        <td><span class="badge bg-success">Yes</span></td>
                                     </tr>
                                     <tr>
-                                        <td>days_per_week</td>
+                                        <td><code>days_per_week</code></td>
                                         <td>integer</td>
-                                        <td>Training days per week (1-7)</td>
-                                        <td>Yes</td>
+                                        <td>Training frequency per week (1-7)</td>
+                                        <td><span class="badge bg-success">Yes</span></td>
                                     </tr>
                                     <tr>
-                                        <td>include_custom_section</td>
+                                        <td><code>include_custom_section</code></td>
                                         <td>boolean</td>
-                                        <td>Whether to include a custom section (circuit or superset)</td>
-                                        <td>No</td>
+                                        <td>Whether to include a high-intensity custom section</td>
+                                        <td><span class="badge bg-secondary">No</span></td>
                                     </tr>
                                     <tr>
-                                        <td>custom_section_type</td>
+                                        <td><code>custom_section_type</code></td>
                                         <td>string</td>
-                                        <td>Type of custom section ("circuit" or "superset")</td>
-                                        <td>No</td>
+                                        <td>Type of high-intensity section ("circuit" or "superset")</td>
+                                        <td><span class="badge bg-secondary">No</span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -133,11 +159,19 @@
                 
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h3 class="mb-0">Example Request</h3>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-code-square me-2" style="font-size: 1.5rem;"></i>
+                            <h3 class="mb-0">Example Request</h3>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="doc-section">
-                            <pre><code>{
+                            <div class="d-flex justify-content-end mb-2">
+                                <button class="btn btn-sm btn-outline-primary" onclick="copyToClipboard('requestExample')">
+                                    <i class="bi bi-clipboard me-1"></i>Copy
+                                </button>
+                            </div>
+                            <pre id="requestExample"><code>{
   "name": "Aarav",
   "age": 35,
   "gender": "male",
@@ -149,69 +183,116 @@
   "custom_section_type": "circuit"
 }</code></pre>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h3 class="mb-0">Response</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="doc-section">
-                            <p>The API returns a JSON object containing the client profile and a complete 12-session workout plan.</p>
-                            
-                            <h4 class="mt-4">Success Response (200 OK)</h4>
-                            <p>The response will include:</p>
-                            <ul>
-                                <li><strong>client_profile:</strong> Object containing the user's profile information</li>
-                                <li><strong>sessions:</strong> Array of 12 workout sessions</li>
-                            </ul>
-                            
-                            <h5 class="mt-3">Session Structure:</h5>
-                            <ul>
-                                <li><strong>session:</strong> Session number (1-12)</li>
-                                <li><strong>date:</strong> Session date in ISO format (YYYY-MM-DD)</li>
-                                <li><strong>workout_type:</strong> Type of workout (push, pull, legs, etc.)</li>
-                                <li><strong>week:</strong> Week number (1-4)</li>
-                                <li><strong>sections:</strong> Object containing workout sections</li>
-                            </ul>
-                            
-                            <h5 class="mt-3">Workout Sections:</h5>
-                            <ul>
-                                <li><strong>warmup:</strong> Array of warm-up exercises</li>
-                                <li><strong>main:</strong> Array of main exercises</li>
-                                <li><strong>cooldown:</strong> Array of cool-down exercises</li>
-                                <li><strong>circuit:</strong> Array of circuit exercises (if requested)</li>
-                                <li><strong>superset:</strong> Array of superset exercises (if requested)</li>
-                            </ul>
-                            
-                            <h5 class="mt-3">Exercise Parameters:</h5>
-                            <ul>
-                                <li><strong>name:</strong> Exercise name</li>
-                                <li><strong>sets:</strong> Number of sets</li>
-                                <li><strong>reps:</strong> Repetitions per set</li>
-                                <li><strong>rest:</strong> Rest duration between sets</li>
-                                <li><strong>tempo:</strong> Speed of exercise phases (eccentric-isometric-concentric)</li>
-                                <li><strong>duration:</strong> For timed movements (e.g., stretches, cardio)</li>
-                                <li><strong>time:</strong> Duration for circuit exercises</li>
-                                <li><strong>rounds:</strong> Number of rounds for circuit exercises</li>
-                            </ul>
-                            
-                            <h4 class="mt-4">Error Response (400 Bad Request)</h4>
-                            <pre><code>{
-  "error": "Error message describing the issue"
-}</code></pre>
+                        
+                        <div class="alert alert-info mt-3">
+                            <div class="d-flex">
+                                <i class="bi bi-info-circle-fill me-2" style="font-size: 1.25rem;"></i>
+                                <div>
+                                    <strong>Tip:</strong> You can test this API directly using the interactive form on our <a href="/" class="alert-link">homepage</a> or through tools like Postman or cURL.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h3 class="mb-0">Example Response</h3>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-arrow-left-square-fill me-2" style="font-size: 1.5rem;"></i>
+                            <h3 class="mb-0">Response Format</h3>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="doc-section">
-                            <pre><code>{
+                            <p>The API returns a comprehensive JSON object containing:</p>
+                            
+                            <div class="card bg-dark mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-person-badge me-2"></i>client_profile
+                                    </h5>
+                                    <p class="card-text">Object containing all user profile information submitted in the request</p>
+                                </div>
+                            </div>
+                            
+                            <div class="card bg-dark mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-calendar3 me-2"></i>sessions
+                                    </h5>
+                                    <p class="card-text">Array of 12 workout sessions spread across 4 weeks</p>
+                                    
+                                    <div class="ms-4 mt-3">
+                                        <h6 class="text-primary"><i class="bi bi-info-circle me-2"></i>Session Structure:</h6>
+                                        <ul class="list-unstyled ms-4">
+                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>session:</strong> Session number (1-12)</li>
+                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>date:</strong> Session date in DD-MM-YYYY format</li>
+                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>workout_type:</strong> Type of workout (push, pull, legs, etc.)</li>
+                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>week:</strong> Week number (1-4)</li>
+                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>sections:</strong> Object containing workout sections</li>
+                                        </ul>
+                                        
+                                        <h6 class="text-primary mt-3"><i class="bi bi-list-nested me-2"></i>Workout Sections:</h6>
+                                        <ul class="list-unstyled ms-4">
+                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>warmup:</strong> Array of warm-up exercises</li>
+                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>main:</strong> Array of main exercises</li>
+                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>cooldown:</strong> Array of cool-down exercises</li>
+                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>circuit:</strong> Array of circuit exercises (if requested)</li>
+                                            <li><i class="bi bi-check2 text-success me-2"></i><strong>superset:</strong> Array of superset exercises (if requested)</li>
+                                        </ul>
+                                        
+                                        <h6 class="text-primary mt-3"><i class="bi bi-gear me-2"></i>Exercise Parameters:</h6>
+                                        <div class="row ms-2">
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled">
+                                                    <li><i class="bi bi-check2 text-success me-2"></i><strong>name:</strong> Exercise name</li>
+                                                    <li><i class="bi bi-check2 text-success me-2"></i><strong>sets:</strong> Number of sets</li>
+                                                    <li><i class="bi bi-check2 text-success me-2"></i><strong>reps:</strong> Repetitions per set</li>
+                                                    <li><i class="bi bi-check2 text-success me-2"></i><strong>rest:</strong> Rest duration between sets</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled">
+                                                    <li><i class="bi bi-check2 text-success me-2"></i><strong>tempo:</strong> Exercise speed pattern</li>
+                                                    <li><i class="bi bi-check2 text-success me-2"></i><strong>duration:</strong> Time for static exercises</li>
+                                                    <li><i class="bi bi-check2 text-success me-2"></i><strong>time:</strong> Duration for circuit work</li>
+                                                    <li><i class="bi bi-check2 text-success me-2"></i><strong>rounds:</strong> Circuit/superset rounds</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card bg-danger text-white mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Error Response (400 Bad Request)
+                                    </h5>
+                                    <pre class="mt-3 mb-0 bg-dark p-3 rounded"><code>{
+  "error": "Detailed error message describing the validation issue"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-filetype-json me-2" style="font-size: 1.5rem;"></i>
+                            <h3 class="mb-0">Example Response</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="doc-section">
+                            <div class="d-flex justify-content-end mb-2">
+                                <button class="btn btn-sm btn-outline-primary" onclick="copyToClipboard('responseExample')">
+                                    <i class="bi bi-clipboard me-1"></i>Copy
+                                </button>
+                            </div>
+                            <pre id="responseExample"><code>{
   "client_profile": {
     "name": "Aarav",
     "age": 35,
@@ -224,7 +305,7 @@
   "sessions": [
     {
       "session": 1,
-      "date": "2023-06-05",
+      "date": "06-05-2025",
       "workout_type": "push",
       "week": 1,
       "sections": {
@@ -245,10 +326,104 @@
           { "name": "Chest Stretch", "duration": "30 sec each side" }
         ]
       }
-    },
+    }
     // Additional sessions omitted for brevity
   ]
 }</code></pre>
+                        </div>
+                        
+                        <div class="alert alert-success mt-4">
+                            <div class="d-flex">
+                                <i class="bi bi-lightbulb-fill me-2" style="font-size: 1.25rem;"></i>
+                                <div>
+                                    <strong>Pro Tip:</strong> The workout plan includes progressive overload principles - exercises get more challenging in later weeks through increased sets, reps, or reduced rest periods based on the client's experience level.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-code-slash me-2" style="font-size: 1.5rem;"></i>
+                            <h3 class="mb-0">Code Samples</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="nav nav-tabs mb-4" id="code-tabs" role="tablist">
+                            <button class="nav-link active" id="curl-tab" data-bs-toggle="tab" data-bs-target="#curl" type="button" role="tab" aria-selected="true">cURL</button>
+                            <button class="nav-link" id="javascript-tab" data-bs-toggle="tab" data-bs-target="#javascript" type="button" role="tab" aria-selected="false">JavaScript</button>
+                            <button class="nav-link" id="python-tab" data-bs-toggle="tab" data-bs-target="#python" type="button" role="tab" aria-selected="false">Python</button>
+                        </div>
+                        
+                        <div class="tab-content" id="code-tab-content">
+                            <div class="tab-pane fade show active" id="curl" role="tabpanel" aria-labelledby="curl-tab">
+                                <pre><code>curl -X POST "https://your-domain.com/api/generate-workout" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "name": "Aarav",
+       "age": 35,
+       "gender": "male",
+       "goal": "muscle_gain",
+       "experience": "intermediate",
+       "equipment": ["dumbbells", "bench", "resistance_band"],
+       "days_per_week": 3,
+       "include_custom_section": true,
+       "custom_section_type": "circuit"
+     }'</code></pre>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="javascript" role="tabpanel" aria-labelledby="javascript-tab">
+                                <pre><code>// Using fetch API
+fetch('https://your-domain.com/api/generate-workout', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'Aarav',
+    age: 35,
+    gender: 'male',
+    goal: 'muscle_gain',
+    experience: 'intermediate',
+    equipment: ['dumbbells', 'bench', 'resistance_band'],
+    days_per_week: 3,
+    include_custom_section: true,
+    custom_section_type: 'circuit'
+  }),
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch((error) => console.error('Error:', error));</code></pre>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="python" role="tabpanel" aria-labelledby="python-tab">
+                                <pre><code>import requests
+import json
+
+url = "https://your-domain.com/api/generate-workout"
+
+payload = {
+    "name": "Aarav",
+    "age": 35,
+    "gender": "male",
+    "goal": "muscle_gain",
+    "experience": "intermediate",
+    "equipment": ["dumbbells", "bench", "resistance_band"],
+    "days_per_week": 3,
+    "include_custom_section": True,
+    "custom_section_type": "circuit"
+}
+
+headers = {
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, headers=headers, data=json.dumps(payload))
+
+print(response.json())</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -258,9 +433,31 @@
     
     <footer class="text-center text-muted">
         <div class="container">
-            <p>&copy; 2023 Workout Plan Generator | A sophisticated AI-powered fitness tool</p>
+            <p>&copy; 2025 Fitness Plan Pro | Advanced AI-powered training solution</p>
         </div>
     </footer>
+
+    <script>
+        // Function to copy code examples to clipboard
+        function copyToClipboard(elementId) {
+            const el = document.getElementById(elementId);
+            const text = el.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                // Get the button that was clicked
+                const button = event.target.closest('button');
+                const originalText = button.innerHTML;
+                
+                // Change the button text temporarily
+                button.innerHTML = '<i class="bi bi-check-lg me-1"></i>Copied!';
+                
+                // Reset the button text after a delay
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

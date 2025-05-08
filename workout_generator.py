@@ -102,10 +102,13 @@ def generate_workout_plan(
             else:  # full_body
                 workout_type = "full_body"
             
+            # Format date in DD-MM-YYYY format
+            formatted_date = session_date.strftime("%d-%m-%Y")
+            
             # Generate the session
             session = generate_session(
                 session_number=session_counter,
-                session_date=session_date.strftime("%Y-%m-%d"),
+                session_date=formatted_date,
                 workout_type=workout_type,
                 week=week+1,
                 goal=goal,
