@@ -2,6 +2,8 @@
 
 An intelligent workout planning system that generates personalized 12-session fitness programs using AI-driven recommendations.
 
+To view the live project on Render -> https://fitnessaiplanner.onrender.com/
+
 ## Features ✨
 - **AI-Powered Workout Generation** - Creates customized plans based on user goals (muscle gain, weight loss, strength, endurance)
 - **Dynamic Programming Logic** - Implements push/pull/legs, upper/lower, and full-body splits
