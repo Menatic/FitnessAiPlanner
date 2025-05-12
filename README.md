@@ -42,23 +42,25 @@ flask run
 
 ## Project Structure 📁
 
+```graphsql
 FitnessAiPlanner/
-├── app.py                  # Core application logic
-├── workout_generator.py    # AI workout generation module
-├── exercise_data.py        # Exercise database
-├── requirements.txt        # Dependencies
-├── README.md               # Project documentation
-│
-├── templates/              # Jinja2 templates
-│   ├── index.html          # Main interface
-│   ├── documentation.html  # API documentation
-│   └── workout_plan.html   # Workout display template
-│
-└── static/                 # Frontend assets
-├── css/
-│   └── styles.css      # Custom styling
-└── js/
-└── main.js         # Interactive features
+├── app.py                   # Core Flask application
+├── workout_generator.py     # AI-based workout plan generator
+├── exercise_data.py         # Contains exercise metadata/database
+├── requirements.txt         # Project dependencies
+├── README.md                # Project documentation
+
+├── templates/               # HTML templates rendered by Flask
+│   ├── index.html           # Main landing page
+│   ├── documentation.html   # API documentation page
+│   └── workout_plan.html    # Generated workout plan view
+
+├── static/                  # Static frontend assets
+│   ├── css/
+│   │   └── styles.css       # Custom CSS styling
+│   └── js/
+│       └── main.js          # JavaScript for interactive features
+```
 
 ## Contributing 🤝
 1. Fork the repository
