@@ -63,10 +63,19 @@ FitnessAiPlanner/
 ```
 
 ## Contributing 🤝
-1. Fork the repository
-2. Create feature branch ( git checkout -b feature/amazing-feature )
-3. Commit changes ( git commit -m 'Add amazing feature' )
-4. Push to branch ( git push origin feature/amazing-feature )
-5. Open Pull Request
+
+Contributions are welcome 
+
+```bash
+# Fork the repository
+# Create your feature branch
+git checkout -b feature/amazing-feature
+
+# Make your changes and commit
+git commit -m 'Add amazing feature'
+
+# Push and open a Pull Request
+git push origin feature/amazing-feature
+```
 
 Disclaimer: This application provides workout suggestions only. Consult a healthcare professional before starting any new exercise program.
