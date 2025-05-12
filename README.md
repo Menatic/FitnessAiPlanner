@@ -78,4 +78,4 @@ git commit -m 'Add amazing feature'
 git push origin feature/amazing-feature
 ```
 
-Disclaimer: This application provides workout suggestions only. Consult a healthcare professional before starting any new exercise program.
+### Disclaimer: This application provides workout suggestions only. Consult a healthcare professional before starting any new exercise program.
